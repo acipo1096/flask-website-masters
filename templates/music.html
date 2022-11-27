@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}
+Music
+{% endblock%}
+{% block content %}
+<section id="music" class="full-height bg-dark text-white py-5">
+  <div class="container">
+    <div class="row">
+      <div id="about-tech" class="col-md-12">
+        <h2>About Me</h2>
+        <p>Music has been part of my life since I can remember. It all started when I (badly) danced around my house to Beatles records. I was taking piano lessons at 6 years old. By 13, I was becoming a competent guitarist, learning everything I could from my favorite guitarist, Jimmy Page.</p>
+        <p>My musicianship has expanded a lot since then. I now play five instruments - guitar, piano, bass, drums, and organ - and I sing, too. I can play over 400 songs on the guitar. My favorite genre is rock and roll, but I also love the sounds of the blues, jazz, and flamenco. I've been fortunate to play with some fantastic musicians, and we all play for the love of the music.</p>
+        <p>I'm always looking for new places to play - contact me <a href="{{ url_for('contact') }}">here</a> if you need someone for your band or event!
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <iframe width="700" height="400" src="https://www.youtube.com/embed/gvDKOhZxIps" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</section>
+{% endblock %}
