@@ -1,19 +1,19 @@
-#cool {
-    background-image: url("/static/rockguitar.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 1500px;
+#main-image {
+  background-image: url("/static/rockguitar.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 1500px;
 }
 
 body > nav > div > ul > li.nav-item.active > a {
-    font-weight: 700;
-    color: #ffffff;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 .full-height {
-    min-height : 1000px;
-  }
+  min-height: 1000px;
+}
 
 #about-tech {
-    color: white;
+  color: white;
 }

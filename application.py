@@ -1,7 +1,16 @@
+import os
 from flask import Flask
 from flask import render_template, request, flash
 from models import db, Contact
-# import smtplib
+from dotenv import load_dotenv
+import smtplib
+
+load_dotenv()
+
+postgres = os.getenv('POSTGRES')
+sqlalchemy_database_uri = os.getenv('SQLALCHEMY_DATABASE_URI')
+secret_key = os.getenv('SECRET_KEY')
+login = os.getenv('LOGIN')
 
 def create_app():
   app = Flask(__name__)
@@ -13,22 +22,18 @@ app.app_context().push()
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 application = app
 
-POSTGRES = {
-  'user' : 'postgres',
-  'pw' : '1234',
-  'db' : 'postgres',
-  'host' : 'localhost',
-  'port' : '5432',
-}
+POSTGRES = postgres;
+SQLALCHEMY_DATABASE_URI = sqlalchemy_database_uri
+SECRET_KEY = secret_key
 
 if __name__ == '__main__':
   db.create_all()
   app.run()
 
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:1234@localhost/postgres'
+app.config['SQLALCHEMY_DATABASE_URI'] = sqlalchemy_database_uri
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.secret_key = 'secret string'
+app.secret_key = secret_key
 
 @app.route("/")
 def index():
@@ -56,12 +61,12 @@ def handle_data():
   db.session.add(entry)
   db.session.commit()
 
-  # notification = 'You have received a new website form submission. Please log in to view.'
+  notification = 'You have received a new website form submission. Please log in to view.'
  
-  # server = smtplib.SMTP("smtp.gmail.com", 587)
-  # server.starttls()
-  # server.login("alex.cipollone10@gmail.com", "")
-  # server.sendmail("alex.cipollone10@gmail.com","alex.cipollone10@gmail.com", notification)
+  server = smtplib.SMTP("smtp.gmail.com", 587)
+  server.starttls()
+  server.login(login, "")
+  server.sendmail(login,login, notification)
   return render_template("contact.html")
 
 
