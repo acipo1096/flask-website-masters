@@ -1,7 +1,5 @@
 # Flask Website
 
-## Description
-
 ## History/Motivation
 My final semester of my master's program included a "Python for Data Analysis" class. As part of the final project, students needed to record themselves coding a project for 6 hours.
 
